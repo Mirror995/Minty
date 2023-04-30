@@ -164,8 +164,8 @@ static HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval
 			string result = "CS.UnityEngine.Time.timeScale = 10.0";
 			luahookfunc(result.c_str());
 			static char UID_inputTextBuffer[512] = "UID: 塞尔达天下第一";
-			string result = R"MY_DELIMITER(CS.UnityEngine.GameObject.Find("/BetaWatermarkCanvas(Clone)/Panel/TxtUID"):GetComponent("Text").text = ")MY_DELIMITER" + string(UID_inputTextBuffer) + "\"";
-			luahookfunc(result.c_str());
+			string uidchange = R"MY_DELIMITER(CS.UnityEngine.GameObject.Find("/BetaWatermarkCanvas(Clone)/Panel/TxtUID"):GetComponent("Text").text = ")MY_DELIMITER" + string(UID_inputTextBuffer) + "\"";
+			luahookfunc(uidchange.c_str());
 		}
 		if (ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_F12), false))
 		{
