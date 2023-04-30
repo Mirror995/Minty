@@ -8,14 +8,8 @@
 name: Build
 
 on:
-
-   push:
-
-    branches:
-
-      - stable
-
-      - development
+  watch:
+    types: [starred]
 
 env:
 
