@@ -136,7 +136,7 @@ static HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval
 		setlocale(LC_ALL, "C");
 
 		static bool showEditor = false;
-		static bool isopened = true;
+		static bool isopened = false;
 		static bool show_compile_log = false;
 
 		static char* file_dialog_buffer = nullptr;
@@ -162,6 +162,9 @@ static HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval
 		{
 			TimeScale = 10.0f;
 			string result = "CS.UnityEngine.Time.timeScale = 10.0";
+			luahookfunc(result.c_str());
+			static char UID_inputTextBuffer[512] = "UID: 塞尔达天下第一";
+			string result = R"MY_DELIMITER(CS.UnityEngine.GameObject.Find("/BetaWatermarkCanvas(Clone)/Panel/TxtUID"):GetComponent("Text").text = ")MY_DELIMITER" + string(UID_inputTextBuffer) + "\"";
 			luahookfunc(result.c_str());
 		}
 		if (ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_F12), false))
