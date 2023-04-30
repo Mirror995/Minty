@@ -158,7 +158,12 @@ static HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval
 			string result = "CS.UnityEngine.Time.timeScale = 1.0";
 			luahookfunc(result.c_str());
 		}
-
+		if (ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_F10)))
+		{
+			TimeScale = 10.0f;
+			string result = "CS.UnityEngine.Time.timeScale = 10.0";
+			luahookfunc(result.c_str());
+		}
 		if (ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_F12), false))
 		{
 			isopened = !isopened;
